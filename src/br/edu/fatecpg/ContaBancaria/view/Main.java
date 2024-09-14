@@ -14,7 +14,8 @@ public class Main {
 		contaUsuario.setSaldo(210766.86);
 		
 		while(true) {
-			System.out.println("1 - Depositar\n2 - Sacar\n0 - Sair");
+			System.out.println("\nSaldo Atual: R$ "+contaUsuario.getSaldo());
+			System.out.println("\n1 - Depositar\n2 - Sacar\n0 - Sair\n");
 			System.out.print("O que deseja fazer: ");
 			opcao = entrada.nextInt();
 			if(opcao == 0) {
@@ -22,7 +23,7 @@ public class Main {
 				break;
 			}else if(opcao == 1) {
 				contaUsuario.depositar();
-			}else if(opcao == 1) {
+			}else if(opcao == 2) {
 				contaUsuario.sacar();
 			}else {
 				System.out.print("\nNão entendi :( tente de novo");

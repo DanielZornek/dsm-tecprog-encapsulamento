@@ -10,29 +10,52 @@ public class Produto {
 	private double preco;
 	private int quantidadeEstoque;
 	
+	public double verificarValor(double valor) {
+		if(valor<=0) {
+			while(true) {
+				if(valor>0) {
+					break;
+				}else {
+					System.out.print("O preço não pode ser igual a zero, muitos menos menor: ");
+					valor = entrada.nextDouble();
+				}
+			}
+		}
+		
+		return valor;
+	}
+	
+	public int verificarQuantidadeEstoque(int quantidade) {
+		if(quantidade < 0) {
+			while(true) {
+				if(quantidade>=0) {
+					break;
+				}else {
+					System.out.print("A quantidade não pode ser inferior a 0: ");
+					quantidade = entrada.nextInt();
+				}
+			}
+		}
+		
+		return quantidade;
+	}
+	
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 	public double getPreco() {
-		return preco;
+		return this.preco;
 	}
-	public void setPreco(double pr) {
-		while(true) {
-			if(pr > 0) {
-				System.out.print("Insira um valor maior que 0: ");
-				pr = entrada.nextDouble();
-				break;
-			}
-		}
-		this.preco = pr;
+	public void setPreco(double preco) {
+		this.preco = verificarValor(preco);
 	}
 	public int getQuantidadeEstoque() {
-		return quantidadeEstoque;
+		return this.quantidadeEstoque;
 	}
 	public void setQuantidadeEstoque(int quantidadeEstoque) {
-		this.quantidadeEstoque = quantidadeEstoque;
+		this.quantidadeEstoque = verificarQuantidadeEstoque(quantidadeEstoque);
 	}
 }

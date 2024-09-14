@@ -19,8 +19,21 @@ public class ContaBancaria {
 	
 	public void sacar() {
 		pegarValor();
+		verificarQuantiaSaldo();
 		this.Saldo -= this.valor;
 		System.out.println("Saque de R$ "+ this.valor +" realizado com sucesso!\nNovo Saldo: R$ "+this.Saldo);
+	}
+	
+	public void verificarQuantiaSaldo() {
+		if(this.valor > this.Saldo) {
+			while(true) {
+				if(this.valor <= this.Saldo) {
+					break;
+				}
+				System.out.println("Saldo Insuficiente para saque, retire menos: ");
+				this.valor = entrada.nextDouble();
+			}
+		}
 	}
 	
 	public void pegarValor() {
